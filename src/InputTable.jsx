@@ -147,12 +147,10 @@ export default function InputTable (
 				<table border="1" cellPadding="8"
 				style={{
 					width: '100%',
-					border: '1px solid #000',
 					backgroundColor : '#fff',
 					borderCollapse: "collapse",
 					tableLayout: 'fixed',
 					width: '100%',
-					borderRadius: '6px'
 				}}
 				
 				>
