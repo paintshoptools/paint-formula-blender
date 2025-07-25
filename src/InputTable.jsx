@@ -169,7 +169,12 @@ export default function InputTable (
 									} 
 									else if (config.shots) {
 										if (i == 1) {
-											return(<th>Shots ({f})</th>);
+											if(config.decimals) {
+												return(<th>Shots + Decimal ({f})</th>);
+											}
+											else {
+												return(<th>Shots ({f})</th>);
+											}
 										}
 										else {
 											return(<th>1/{f / config.fractions[1]} Shots</th>);
@@ -199,9 +204,7 @@ export default function InputTable (
 									</td>
 									{
 										r.values.map((v, i) => (
-											<td style={{
-												padding:'0',
-												}}>
+											<td>
 											<input value={v ?? 0} onChange={(e) => updateValue(r.id, i, e.target.value)} 
 												style={{ width: '80%',
 														borderRadius: '5px', 

@@ -39,15 +39,33 @@ export default function App() {
   //pigment map gives us the available pigments
   const gennexPigments = [
     {name: 'S1', color:'#000000'},
+    {name: 'S2', color: '#808080'},
     {name: 'W1', color: '#FFFFFF'},
-    {name: 'S2', color: '#999999'},
-    {name: 'B1', color: '#0000FF'}
+    {name: 'B1', color: '#0000FF'},
+    {name: 'O1', color: '#D35400'},
+    {name: 'G1', color: '#186A3B'},
+    {name: 'M1', color: '#D10069'},
+    {name: 'Y1', color: '#FFFF00'},
+    {name: 'Y2', color: '#FFD900'},
+    {name: 'Y3', color: '#FFA600'},
+    {name: 'R1', color: '#FF0000'},
+    {name: 'R2', color: '#CB3434'},
+    {name: 'R3', color: '#7E2020'},
   ]
   
   const oilPigments = [
     {name: 'B', color:'#000000'},
     {name: 'KX', color:'#FFFFFF'},
-    
+    {name: 'F', color: '#922626'},
+    {name: 'R', color: '#ff0000'},
+    {name: 'AXX', color: '#ffff00'},
+    {name: 'C', color: '#FFD900'},
+    {name: 'L', color: '#4D3200'},
+    {name: 'I', color: '#522600'},
+    {name: 'V', color: '#E600E6'},
+    {name: 'T', color: '#FFE866'},
+    {name: 'D', color: '#00E600'},
+    {name: 'E', color: '#0000FF'},
   ]
   
   
@@ -77,7 +95,7 @@ export default function App() {
   const formatOptions = [
     {name: "Ace", value: AceConfig},
     {name: "Ben Moore", value:BenMooreConfig},
-    {name: "Universal", value:OilBasedConfig}]
+    {name: "Oil Based", value:OilBasedConfig}]
     
   function createDefaultRows(config) {
     let defaultRows = [];
@@ -172,15 +190,16 @@ export default function App() {
     }
   }
   
+  /*
+    Add to the undo queue when we:
+      - Clear
+      - Copy Result / Swap
+      - Redo
+      - 
+  */
+  
   function undo() {
-    console.log('undoing, cursor at ' + historyCursor );
-    if(historyCursor + undoHistory.length <= 0) {
-      //TODO: Can't undo anymore!
-      console.log("can't undo anymore!");
-    } else {
-      setHistoryCursor(prev => prev - 1);
-      loadState();
-    }
+    
   }
   
   function redo() {
@@ -285,6 +304,10 @@ export default function App() {
         </div>
       </div>
       <OutputTable config={outputConfig} rows={outputTable}/>
+      <div text-align="center">
+      <p>Licensed under the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU GPL V3 License</a></p>
+      <p>Source Code Available on <a href='https://github.com/paintshoptools'>Github</a></p>
+      </div>
     </div>
   );
 }
