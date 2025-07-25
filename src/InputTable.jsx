@@ -2,14 +2,12 @@
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Card } from 'primereact/card';
-import { ThemeProvider, useTheme } from './ThemeContext';
 import React, { useState } from "react";
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 import { InputNumber } from 'primereact/inputnumber';
 
-import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeicons/primeicons.css';
 
@@ -144,17 +142,17 @@ export default function InputTable (
 	}
 		
 	return (
-				<div
-				style={{
-					padding: '5px',
-					border: '1px solid white'
-				}}>
+				<div>
 				<h2>Formula {formulaName} </h2>
 				<table border="1" cellPadding="8"
 				style={{
+					width: '100%',
+					border: '1px solid #000',
+					backgroundColor : '#fff',
 					borderCollapse: "collapse",
 					tableLayout: 'fixed',
-					width: '100%'
+					width: '100%',
+					borderRadius: '6px'
 				}}
 				
 				>

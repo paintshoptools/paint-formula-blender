@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
-import ThemeToggle from './ThemeToggle';
-import { useTheme } from './ThemeContext';
 import { Button } from 'primereact/button';
-import ConfigToolbar from './ConfigToolbar'
 import InputTable from './InputTable';
 import FunctionToolbar from './FunctionToolbar';
 import OutputTable from './OutputTable';
@@ -198,6 +195,10 @@ export default function App() {
       - 
   */
   
+  /*
+  */
+  
+  
   function undo() {
     
   }
@@ -281,8 +282,6 @@ export default function App() {
     >
       <div style={{display:'flex', gap:'0.5rem', padding:'2rem'}}>
         <Button label = "Clear" icon = 'pi pi-times' onClick = {() => clear()} />
-        <Button label = "Undo" icon = 'pi pi-undo' onClick = {() => undo()}/>
-        <Button label = "Redo" icon = 'pi pi-refresh' onClick = {() => redo()}/>
         <Dropdown
           options ={formatOptions}
           optionLabel = "name"
@@ -291,8 +290,10 @@ export default function App() {
           
         />
       </div>
+      <div style={{padding:'2rem'}}>
       <InputTable formulaName="A" rows={inputTableA} config={inputConfig} updateRows={setInputTableA}/>
       <InputTable formulaName="B" rows={inputTableB} config={inputConfig} updateRows={setInputTableB}/>
+      </div>
       <div>
         <div style={{display:'flex', gap:'0.5rem', padding:'2rem'}}>
           <Button label = "Add" icon='pi pi-plus-circle' onClick = {() => add(1)}/>

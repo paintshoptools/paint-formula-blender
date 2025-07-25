@@ -1,10 +1,8 @@
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Card } from 'primereact/card';
-import { ThemeProvider, useTheme } from './ThemeContext';
 import { Button } from 'primereact/button';
 
-import OutputToolbar from './OutputToolbar'
 
 export default function OutputTable (
 	{
