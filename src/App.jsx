@@ -6,7 +6,6 @@ import OutputTable from "./OutputTable";
 import ModeToggle from "./ModeToggle";
 import { Card } from "primereact/card";
 import { Dropdown } from "primereact/dropdown";
-import DiscreteSlider from "./DiscreteSlider";
 import { SelectButton } from "primereact/selectbutton";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
