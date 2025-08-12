@@ -158,6 +158,7 @@ export default function App() {
     let newRows = createDefaultRows(newConfig);
     setInputTableA(newRows);
     setInputTableB(newRows);
+    setOutputScaleFactor(1);
     setOutputTable([]);
   }
 
@@ -249,6 +250,7 @@ export default function App() {
       }
     });
     console.log(result);
+    setOutputScaleFactor(1);
     setOutputTable(result);
   }
 
@@ -262,6 +264,7 @@ export default function App() {
     const defaultRows = createDefaultRows(inputConfig);
     setInputTableA(defaultRows);
     setInputTableB(defaultRows);
+    setOutputScaleFactor(1);
     setOutputTable([]);
   }
 
