@@ -366,10 +366,7 @@ export default function App() {
       <OutputTable config={outputConfig} rows={scaleOutput()} />
       <div text-align="center">
         <p>
-          Licensed under the{" "}
-          <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
-            GNU GPL V3 License
-          </a>
+          Licensed under the <a href="https://mit-license.org">MIT License</a>
         </p>
         <p>
           Source Code Available on{" "}
