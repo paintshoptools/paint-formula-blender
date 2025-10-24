@@ -34,7 +34,7 @@ export default function App() {
   //decimal precision
   const P = 10000;
 
-  const scaleOptions = [0.1, 0.2, 0.25, 0.5, 1, 2, 4, 5, 10];
+  const scaleOptions = [0.1, 0.2, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 4, 5, 10];
 
   const scaleOptionsTemplate = (option) => {
     return `${option}x`;
