@@ -257,6 +257,18 @@ export default function App() {
   function copyTo(table) {
     table == "A" ? setInputTableA(outputTable) : setInputTableB(outputTable);
   }
+  
+  function copyToClipboard() {
+    let formulaData = [];
+    outputTable.forEach((i) => {
+      console.log(i.pigment.name);
+      if(!(i.pigment.name === undefined)) {
+        formulaData.push({name:i.pigment.name, values:i.values});
+      }
+    })
+    console.log('formulaData: ' + formulaData);
+    navigator.clipboard.writeText(JSON.stringify(formulaData));
+  }
 
   function clear() {
     setInputTableA([]);
@@ -356,6 +368,7 @@ export default function App() {
           />
         </div>
       </div>
+      <div style={{ display: "flex", gap: "0.5rem", padding: "2rem" }}>
       <SelectButton
         value={outputScaleFactor}
         onChange={(e) => setOutputScaleFactor(e.value)}
@@ -363,6 +376,12 @@ export default function App() {
         optionLabel="Scale Output By:"
         options={scaleOptions}
       />
+      <Button
+      label="Copy Result to Clipboard"
+      icon="pi pi-clipboard"
+      onClick={()=>copyToClipboard()}
+      />  
+      </div>
       <OutputTable config={outputConfig} rows={scaleOutput()} />
       <div text-align="center">
         <p>
