@@ -1,0 +1,15 @@
+thead {
+	font-family:'Times New Roman', 'serif';
+}
+
+div.num {
+	border-bottom:1px solid;
+	text-align:center;
+	font-size: 0.8em;
+}
+
+div.denom {
+	font-size: 0.8em;
+	border-top: 1px solid;
+	text-align: center;
+}

@@ -9,6 +9,8 @@ import { InputNumber } from "primereact/inputnumber";
 
 import "primeicons/primeicons.css";
 import "primeicons/primeicons.css";
+import "./InputTable.css"
+//import "mathjax"
 
 function ColorSquare({ color, size = 50 }) {
   return (
@@ -158,32 +160,41 @@ export default function InputTable({ formulaName, config, rows, updateRows }) {
       <h2>Formula {formulaName} </h2>
       <table
         border="1"
-        cellPadding="8"
+        cellPadding="0"
         style={{
           width: "100%",
           backgroundColor: "#fff",
           borderCollapse: "collapse",
-          tableLayout: "fixed",
+          tableLayout: "dynamic",
         }}
       >
         <thead>
           <tr>
-            <th>Pigment</th>
+          <th></th>
+            <th><h2>Pigment</h2></th>
             {config.fractions.map((f, i) => {
               if (i == 0) {
-                return <th>Ounces</th>;
+                return <th><h2>Oz.</h2></th>;
               } else if (config.shots) {
                 if (i == 1) {
                   if (config.decimals) {
-                    return <th>Shots + Decimal ({f})</th>;
+                    return <th><h2>Shots + Decimal ({f})</h2></th>;
                   } else {
-                    return <th>Shots ({f})</th>;
+                    return <th><h2>Shots ({f})</h2></th>;
                   }
                 } else {
-                  return <th>1/{f / config.fractions[1]} Shots</th>;
+                  
+                  switch (f / config.fractions[1]) {
+                    case 2:
+                      return <th><h2>½ Shots</h2></th>;
+                    case 4:
+                      return <th><h2>¼ Shots</h2></th>;
+                    case 8:
+                      return <th><h2>⅛ Shots</h2></th>;
+                  }
                 }
               } else {
-                return <th>1/{f} Ounces </th>;
+                return <th><h2>1/{f} Oz. </h2></th>;
               }
             })}
           </tr>
@@ -197,6 +208,7 @@ export default function InputTable({ formulaName, config, rows, updateRows }) {
                   severity="danger"
                   onClick={() => removeRow(r.id)}
                 />
+              </td><td>
                 <Dropdown
                   options={getAvailablePigments(r.pigment)}
                   value={r.pigment}
@@ -212,12 +224,13 @@ export default function InputTable({ formulaName, config, rows, updateRows }) {
                     value={v ?? 0}
                     onChange={(e) => updateValue(r.id, i, e.target.value)}
                     style={{
-                      width: "80%",
-                      borderRadius: "5px",
+                      width: "50%",
+                      borderRadius: "0px",
+                      borderBottom: "5px solid black",
                       height: "100%",
                       display: "inline-block",
                       position: "relative",
-                      fontSize: "1.5rem",
+                      fontSize: "2rem",
                       backgroundColor: getBackgroundColor(r.id, i),
                     }}
                   />
